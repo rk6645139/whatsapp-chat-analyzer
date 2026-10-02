@@ -16,7 +16,7 @@ from src.temporal import (
 
 def get_data():
 
-    df = parse_whatsapp_chat("data/chat.txt")
+    df=parse_whatsapp_chat("tests/fixtures/sample_chat.txt")
 
     return preprocess_messages(df)
 
