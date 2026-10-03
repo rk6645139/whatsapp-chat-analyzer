@@ -1,15 +1,23 @@
 import re
 from collections import Counter
-
+import nltk
 import emoji
-from nltk.corpus import stopwords
 
 
 # --------------------------------------------------
 # Stopwords
 # --------------------------------------------------
 
-ENGLISH_STOPWORDS = set(stopwords.words("english"))
+
+from nltk.corpus import stopwords
+
+try:
+    ENGLISH_STOPWORDS = set(stopwords.words("english"))
+except LookupError:
+    nltk.download("stopwords", quiet=True)
+    
+    ENGLISH_STOPWORDS = set(stopwords.words("english"))
+
 
 CUSTOM_STOPWORDS = {
     "hai",
